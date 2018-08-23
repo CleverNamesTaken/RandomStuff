@@ -8,8 +8,10 @@ fi
 echo '[*] The echo-fied version of the script is as follows:'
 echo ''
 echo ''
-sed -e 's/^/echo /g; s/$/ >> script.vbs \&/g ' $1 |tr '\n' ' ' | sed 's/...$//'
+sedCommand="sed -e 's/^/echo /g; s/$/ >> "$1" \&/g ' $1 |tr '\n' ' ' | sed 's/...$//'"
+eval $sedCommand
 echo ''
 echo ''
 echo "[*] This command will be saved in $1_echofied."
-sed -e 's/^/echo /g; s/$/ >> script.vbs \&/g ' $1 |tr '\n' ' ' | sed 's/...$//' > $1_echofied
+sedCommand="sed -e 's/^/echo /g; s/$/ >> "$1" \&/g ' $1 |tr '\n' ' ' | sed 's/...$//' > $1_echofied"
+eval $sedCommand
